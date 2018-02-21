@@ -6,7 +6,8 @@ import {
     LIST_PORTALS_SUCCESS,
     LIST_TRANSFERS,
     LIST_TRANSFERS_SUCCESS,
-    SHOW_ERROR
+    SHOW_ERROR,
+    CLEAR_ERROR
 } from './actions';
 
 const portals = (state = {isLoading: false, items: []}, action) => {
@@ -51,6 +52,9 @@ const error = (state = null, action) => {
     switch (action.type) {
         case SHOW_ERROR:
             return action.error;
+
+        case CLEAR_ERROR:
+            return null;
 
         default:
             return state;

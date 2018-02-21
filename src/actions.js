@@ -5,6 +5,7 @@ export const LIST_TRANSFERS = 'LIST_TRANSFERS';
 export const LIST_PORTALS_SUCCESS = 'LIST_PORTALS_SUCCESS';
 export const LIST_TRANSFERS_SUCCESS = 'LIST_TRANSFERS_SUCCESS';
 export const SHOW_ERROR = 'SHOW_ERROR';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
 
 function listPortals () {
     return {
@@ -32,6 +33,13 @@ function showError (error) {
     };
 }
 
+function clearError (error) {
+    return {
+        type: CLEAR_ERROR,
+        error
+    };
+}
+
 function listTransferSuccess (transfers) {
     return {
         type: LIST_TRANSFERS_SUCCESS,
@@ -45,6 +53,7 @@ function loadPortals () {
 
         try {
             const portals = await getPortals();
+            dispatch(clearError());
             dispatch(listPortalsSuccess(portals.items));
         } catch (err) {
             dispatch(showError(err));
@@ -58,6 +67,7 @@ function loadTransfers () {
 
         try {
             const transfers = await getActiveTransfers();
+            dispatch(clearError());
             dispatch(listTransferSuccess(transfers.items));
         } catch (err) {
             dispatch(showError(err));
