@@ -1,0 +1,6 @@
+{
+  "mediaShuttleManagementApi": {
+    "baseUrl": "https://api.mediashuttle.com/v1",
+    "apiKey": "<Insert Media Shuttle API Key>"
+  }
+}
