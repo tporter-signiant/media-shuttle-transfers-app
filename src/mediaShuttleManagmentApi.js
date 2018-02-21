@@ -16,6 +16,7 @@ const getApiKey = () => {
 };
 
 const options = {
+    mode: 'cors',
     headers: {
         Authorization: getApiKey()
     }
