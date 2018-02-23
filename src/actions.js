@@ -1,4 +1,4 @@
-import {getPortals, getActiveTransfers} from './mediaShuttleManagmentApi';
+import {getPortals, getActiveTransfers, getStorageForPortal} from './mediaShuttleManagmentApi';
 
 export const LIST_PORTALS = 'LIST_PORTALS';
 export const LIST_TRANSFERS = 'LIST_TRANSFERS';
@@ -53,6 +53,16 @@ function loadPortals () {
 
         try {
             const portals = await getPortals();
+
+            const storagePromises = [];
+            portals.items.forEach((portal) => {
+                storagePromises.push(getStorageForPortal(portal.id));
+            });
+            const storage = await Promise.all(storagePromises);
+            storage.forEach((storage, i) => {
+                portals.items[i].storage = storage;
+            });
+
             dispatch(clearError());
             dispatch(listPortalsSuccess(portals.items));
         } catch (err) {

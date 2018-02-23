@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PortalAvatar from './PortalAvatar';
+import StorageInfo from './StorageInfo';
 import {Title, Subheading} from './typography';
 
 const PortalHeadingWrapper = styled.div`
@@ -22,6 +23,7 @@ const PortalHeading = ({portal, isSmallDisplay}) => (
         <HeadlineWrapper>
             <Title>{portal.name}</Title>
             {isSmallDisplay ? null : <Subheading>{portal.url}</Subheading>}
+            {isSmallDisplay ? null : <Subheading><StorageInfo storage={portal.storage}/></Subheading>}
         </HeadlineWrapper>
     </PortalHeadingWrapper>
 );

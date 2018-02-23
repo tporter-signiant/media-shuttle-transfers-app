@@ -1,6 +1,6 @@
 {
   "mediaShuttleManagementApi": {
-    "baseUrl": "https://api.mediashuttle.com/v1",
-    "apiKey": "<Insert Media Shuttle API Key>"
+    "baseUrl": "https://api.atlantis.developer.mediashuttle.com/v1",
+    "apiKey": "2d2b7191-bfdc-4537-9f42-48b49dac0176"
   }
 }

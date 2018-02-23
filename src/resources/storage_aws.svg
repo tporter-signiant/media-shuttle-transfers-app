@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 57.1 54.5" enable-background="new 0 0 57.1 54.5" xml:space="preserve" preserveAspectRatio="none">
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  height="331.9" width="942.6" bottomLeftOrigin="true" x="226.7" y="-686.8"></sliceSourceBounds>
+	</sfw>
+</metadata>
+<g>
+	<path fill="#9F9FA1" d="M45.7,46.9H13.3C6,46.9,0,40.9,0,33.6c0-5.3,3.2-9.9,7.7-12c0-0.4-0.1-0.9-0.1-1.3C7.6,11.8,14.4,5,22.8,5
+		c6.4,0,11.8,3.9,14.1,9.5c1.3-1.2,3-1.8,4.9-1.8c4.2,0,7.6,3.4,7.6,7.6c0,1.5-0.4,2.9-1.2,4.1c5.1,1.2,8.8,5.7,8.8,11.1
+		C57.1,41.8,52,46.9,45.7,46.9z"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M20.8,41.3l-3.5-1.3V35l3.5,1.2V41.3z M21.5,41.3l3.5-1.3V35
+	l-3.5,1.2V41.3z M21.2,35.8l3.3-1.1l-3.3-1.1l-3.5,1L21.2,35.8z M16.7,29l-3.5-1.2v5.1l3.5,1.3V29z M17.3,34.2l3.5-1.3v-5.1L17.3,29
+	V34.2z M17.1,28.6l3.3-1.1l-3.3-1.1l-3.5,1L17.1,28.6z M24.8,29l-3.5-1.2v5.1l3.5,1.3V29z M25.5,34.2l3.5-1.3v-5.1L25.5,29V34.2z
+	 M25.2,28.6l3.3-1.1l-3.3-1.1l-3.5,1L25.2,28.6z M29,21.9l-3.5-1.2v5.1l3.5,1.3V21.9z M29.6,27.1l3.5-1.3v-5.1l-3.5,1.2V27.1z
+	 M29.4,21.5l3.3-1.1l-3.3-1.1l-3.5,1L29.4,21.5z M37.1,21.9l-3.5-1.2v5.1l3.5,1.3V21.9z M37.7,27.1l3.5-1.3v-5.1l-3.5,1.2V27.1z
+	 M37.5,21.5l3.3-1.1l-3.3-1.1l-3.5,1L37.5,21.5z"/>
+</svg>
