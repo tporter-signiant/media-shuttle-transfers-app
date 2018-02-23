@@ -64,7 +64,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     loadPortals: () => dispatch(loadPortals()),
-    loadTransfers: () => dispatch(loadTransfers()),
+    loadTransfers: () => dispatch(loadTransfers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActiveTransfers);
