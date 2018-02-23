@@ -31,7 +31,7 @@ const PortalHeading = ({portal, isSmallDisplay}) => {
             <Title>{portal.name}</Title>
 
             {isSmallDisplay ? null : <Subheading>{portal.url}</Subheading>}
-            {isSmallDisplay ? null : storageSubheadings}
+            {storageSubheadings}
 
         </HeadlineWrapper>
     </PortalHeadingWrapper>);
