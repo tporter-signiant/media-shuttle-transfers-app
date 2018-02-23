@@ -7,14 +7,13 @@ import ActiveTransferList from '../components/ActiveTransferList';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import spinnerIcon from '@fortawesome/fontawesome-free-solid/faSpinner';
 
-const TRANSFERS_REFRESH_INTERVAL = 30000;
+const TRANSFERS_REFRESH_INTERVAL = 5000;
 
 class ActiveTransfers extends React.Component {
 
     componentDidMount () {
         this.props.loadPortals();
         this.loadTransfers();
-        // this.props.loadStorage();
     }
 
     loadTransfers () {
@@ -66,7 +65,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     loadPortals: () => dispatch(loadPortals()),
     loadTransfers: () => dispatch(loadTransfers()),
-    // loadStorage: (portalId) => dispatch(loadStorage(portalId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActiveTransfers);
