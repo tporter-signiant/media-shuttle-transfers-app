@@ -17,15 +17,24 @@ const HeadlineWrapper = styled.div`
     padding: 0 20px;
 `;
 
-const PortalHeading = ({portal, isSmallDisplay}) => (
-    <PortalHeadingWrapper>
+const PortalHeading = ({portal, isSmallDisplay}) => {
+
+    const storageSubheadings = portal.storage.map((storage) =>
+        <Subheading>
+            <StorageInfo storage={storage}/>
+        </Subheading>
+    );
+
+    return (<PortalHeadingWrapper>
         <PortalAvatar type={portal.type} />
         <HeadlineWrapper>
             <Title>{portal.name}</Title>
+
             {isSmallDisplay ? null : <Subheading>{portal.url}</Subheading>}
-            {isSmallDisplay ? null : <Subheading><StorageInfo storage={portal.storage}/></Subheading>}
+            {isSmallDisplay ? null : storageSubheadings}
+
         </HeadlineWrapper>
-    </PortalHeadingWrapper>
-);
+    </PortalHeadingWrapper>);
+};
 
 export default PortalHeading;

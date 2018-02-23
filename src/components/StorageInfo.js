@@ -40,9 +40,9 @@ const getDisplayNameForStorage = (storage) => {
     }
 };
 
-class StorageLogo extends React.Component {
+class StorageInfo extends React.Component {
     render() {
-        const storage = this.props.storage[0];
+        const storage = this.props.storage;
 
         return <span>
             <img style={imageStyle} src={getImageForStorageType(storage.type)}
@@ -52,4 +52,4 @@ class StorageLogo extends React.Component {
     }
 }
 
-export default StorageLogo;
+export default StorageInfo;
