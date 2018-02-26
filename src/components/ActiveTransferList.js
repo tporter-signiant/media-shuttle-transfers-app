@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {TransitionGroup} from 'react-transition-group';
 import ActiveTransfer from './ActiveTransfer';
@@ -65,5 +66,15 @@ class ActiveTransferList extends React.Component {
         );
     }
 }
+
+ActiveTransferList.propTypes = {
+    transfers: PropTypes.arrayOf(PropTypes.object),
+    portals: PropTypes.arrayOf(PropTypes.object),
+    isSmallDisplay: PropTypes.bool
+};
+
+ActiveTransferList.defaultProps = {
+    isSmallDisplay: false
+};
 
 export default ActiveTransferList;

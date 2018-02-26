@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import PortalAvatar from './PortalAvatar';
 import {Title, Subheading} from './typography';
@@ -25,5 +26,14 @@ const PortalHeading = ({portal, isSmallDisplay}) => (
         </HeadlineWrapper>
     </PortalHeadingWrapper>
 );
+
+PortalHeading.propTypes = {
+    portal: PropTypes.object,
+    isSmallDisplay: PropTypes.bool
+};
+
+PortalHeading.defaultProps = {
+    isSmallDisplay: false
+};
 
 export default PortalHeading;

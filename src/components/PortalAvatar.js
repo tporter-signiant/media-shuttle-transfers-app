@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import PortalType from '../PortalType';
 import sendImage from '../resources/send-portal-avatar.png';
 import submitImage from '../resources/submit-portal-avatar.png';
 import shareImage from '../resources/share-portal-avatar.png';
@@ -26,9 +28,9 @@ const PortalAvatarWrapper = styled.div`
 `;
 
 const getImageForPortalType = (type) => {
-    if (type === 'Send') {
+    if (type === PortalType.Send) {
         return sendImage;
-    } else if (type === 'Submit') {
+    } else if (type === PortalType.Submit) {
         return submitImage;
     } else {
         return shareImage;
@@ -40,5 +42,9 @@ const PortalAvatar = ({type}) => (
         <img src={getImageForPortalType(type)} alt=""/>
     </PortalAvatarWrapper>
 );
+
+PortalAvatar.propTypes = {
+    type: PropTypes.string
+};
 
 export default PortalAvatar;

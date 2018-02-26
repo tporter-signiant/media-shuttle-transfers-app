@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import uploadIcon from '@fortawesome/fontawesome-free-solid/faAngleUp';
 import downloadIcon from '@fortawesome/fontawesome-free-solid/faAngleDown';
@@ -28,6 +29,10 @@ const SpeedAndDirection = ({transfer}) => (
     </SpeedAndDirectionWrapper>
 );
 
+SpeedAndDirection.propTypes = {
+    transfer: PropTypes.object
+};
+
 const UserWrapper = styled.div`
     padding: 10px;
     width: 200px;
@@ -40,6 +45,10 @@ const User = ({user}) => (
         <Body1 style={{verticalAlign: 'bottom', paddingLeft: 5}}>{user.email}</Body1>
     </UserWrapper>
 );
+
+User.propTypes = {
+    user: PropTypes.object
+};
 
 const CurrentFileWrapper = styled.div`
     padding: 0 10px;
@@ -54,6 +63,10 @@ const CurrentFile = ({file}) => (
     </CurrentFileWrapper>
 );
 
+CurrentFile.propTypes = {
+    file: PropTypes.object
+};
+
 const TimeLeftWrapper = styled.div`
     padding: 10px;
     width: 150px;
@@ -66,11 +79,15 @@ const TimeLeft = ({seconds}) => {
     return (
         <TimeLeftWrapper>
             {timeLeft ? [
-                <FontAwesomeIcon icon={clockIcon} color={highlightColor}/>,
-                <Body1 style={{paddingLeft: 5}}>{timeLeft}</Body1>
+                <FontAwesomeIcon key="icon" icon={clockIcon} color={highlightColor}/>,
+                <Body1 key="text" style={{paddingLeft: 5}}>{timeLeft}</Body1>
             ] : null}
         </TimeLeftWrapper>
     );
+};
+
+TimeLeft.propTypes = {
+    seconds: PropTypes.number
 };
 
 const TransferWrapper = styled.div`
@@ -109,6 +126,15 @@ const ActiveTransfer = ({transfer, isSmallDisplay}) => {
             </TransferWrapper>
         );
     }
+};
+
+ActiveTransfer.propTypes = {
+    transfer: PropTypes.object,
+    isSmallDisplay: PropTypes.bool
+};
+
+ActiveTransfer.defaultProps = {
+    isSmallDisplay: false
 };
 
 export default ActiveTransfer;

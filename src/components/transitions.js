@@ -13,7 +13,6 @@ const FadeTransition = ({children, duration, ...props}) => (
     </Transition>
 );
 
-
 const ShrinkTransition = ({children, duration, ...props}) => (
     <Transition
         {...props}
