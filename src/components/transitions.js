@@ -1,6 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Transition} from 'react-transition-group';
 import {fadeIn, shrink, unshrink} from '../animations';
+
+const propTypes = {
+    children: PropTypes.element.isRequired,
+    duration: PropTypes.number
+};
+
+const defaultProps = {
+    duration: 500
+};
+
 
 const FadeTransition = ({children, duration, ...props}) => (
     <Transition
@@ -13,6 +24,9 @@ const FadeTransition = ({children, duration, ...props}) => (
     </Transition>
 );
 
+FadeTransition.propTypes = propTypes;
+FadeTransition.defaultProps = defaultProps;
+
 const ShrinkTransition = ({children, duration, ...props}) => (
     <Transition
         {...props}
@@ -24,6 +38,9 @@ const ShrinkTransition = ({children, duration, ...props}) => (
         {children}
     </Transition>
 );
+
+ShrinkTransition.propTypes = propTypes;
+ShrinkTransition.defaultProps = defaultProps;
 
 export {
     FadeTransition,

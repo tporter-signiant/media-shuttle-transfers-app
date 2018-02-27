@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ErrorMessage = styled.div`
@@ -11,5 +12,9 @@ const ErrorMessage = styled.div`
 const ShowError = ({message}) => (
     <ErrorMessage>{message}</ErrorMessage>
 );
+
+ShowError.propTypes = {
+    message: PropTypes.string
+};
 
 export default ShowError;
