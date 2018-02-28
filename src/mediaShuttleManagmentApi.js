@@ -1,29 +1,19 @@
 import request from './request';
 import config from './config';
 
-const {baseUrl, apiKey} = config.mediaShuttleManagementApi;
+const {baseUrl} = config.mediaShuttleManagementApi;
 const PORTALS_ENDPOINT = `${baseUrl}/portals`;
 const TRANSFERS_ENDPOINT = `${baseUrl}/transfers?state=active`;
 
-const getApiKey = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (urlParams.get('apiKey')) {
-        return urlParams.get('apiKey');
-    } else {
-        return apiKey;
-    }
-};
-
-const options = {
+const getOptions = ({apiKey}) => ({
     mode: 'cors',
     headers: {
-        Authorization: getApiKey()
+        Authorization: apiKey
     }
-};
+});
 
-const getPortals = () => request(PORTALS_ENDPOINT, options);
-const getActiveTransfers = () => request(TRANSFERS_ENDPOINT, options);
+const getPortals = (apiKey) => request(PORTALS_ENDPOINT, getOptions({apiKey}));
+const getActiveTransfers = (apiKey) => request(TRANSFERS_ENDPOINT, getOptions({apiKey}));
 
 export {
     getPortals,

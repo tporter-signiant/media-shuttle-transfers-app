@@ -9,6 +9,8 @@ import ActiveTransfers from './containers/ActiveTransfers';
 import 'typeface-roboto';
 import './styles.css';
 
+/* eslint-disable no-undef */
+
 const composeEnhancers =
     typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
         ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;

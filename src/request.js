@@ -1,6 +1,8 @@
 import 'whatwg-fetch';
 import HttpStatus from 'http-status-codes';
 
+/* eslint-disable no-undef */
+
 const getResponseJson = async (response) => {
     try {
         return await response.json();
