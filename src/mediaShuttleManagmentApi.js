@@ -8,6 +8,7 @@ const TRANSFERS_ENDPOINT = `${baseUrl}/transfers?state=active`;
 const PORTALS_ENDPOINT = `${baseUrl}/portals`;
 const STORAGE_ENDPOINT = `${baseUrl}/storage`;
 const PORTAL_STORAGE_ENDPOINT = `${PORTALS_ENDPOINT}/%s/storage`;
+const DELIVERY_FILES_ENDPOINT = `${PORTALS_ENDPOINT}/%s/delivery/%s/files`;
 
 const getApiKey = () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -28,6 +29,11 @@ const options = {
 
 const getPortals = () => request(PORTALS_ENDPOINT, options);
 const getActiveTransfers = () => request(TRANSFERS_ENDPOINT, options);
+
+const getFilesForDelivery = (portalId, deliveryId) => {
+    return request(util.format(DELIVERY_FILES_ENDPOINT, portalId, deliveryId), options);
+};
+
 const getStorageForPortal = async (portalId) => {
     const portalStorages = await request(util.format(PORTAL_STORAGE_ENDPOINT, portalId), options);
     return Promise.all(portalStorages.map((portalStorage) => {
@@ -38,5 +44,6 @@ const getStorageForPortal = async (portalId) => {
 export {
     getPortals,
     getActiveTransfers,
-    getStorageForPortal
+    getStorageForPortal,
+    getFilesForDelivery
 };

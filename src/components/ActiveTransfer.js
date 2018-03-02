@@ -85,30 +85,69 @@ const SmallDisplayWrapper = styled.div`
     flex: 1 1 auto;
 `;
 
-const ActiveTransfer = ({transfer, isSmallDisplay}) => {
-    const details = transfer.activeTransferDetails;
+const ClickableText = styled.span`
+    color: #68bbe1;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+`;
 
-    if (isSmallDisplay) {
-        return (
-            <TransferWrapper>
-                <SpeedAndDirection transfer={transfer}/>
-                <SmallDisplayWrapper>
+class ShowFilesButton extends React.Component {
+    render() {
+        return <ClickableText onClick={this.props.onClick}>Show Files</ClickableText>;
+    }
+}
+
+class HideFilesButton extends React.Component {
+    render() {
+        return <ClickableText onClick={this.props.onClick}>Hide Files</ClickableText>;
+    }
+}
+
+class ActiveTransfer extends React.Component {
+    constructor() {
+        super();
+        this.state = { filesShown: false };
+    }
+
+    toggleFilesShown() {
+        this.setState((prevState) => ({filesShown: !prevState.filesShown}));
+    }
+
+    render () {
+        const {transfer, isSmallDisplay} = this.props;
+
+        const details = transfer.activeTransferDetails;
+
+        if (isSmallDisplay) {
+            return (
+                <TransferWrapper>
+                    <SpeedAndDirection transfer={transfer}/>
+                    <SmallDisplayWrapper>
+                        <User user={transfer.user}/>
+                        <CurrentFile file={details.currentFile}/>
+                        <TimeLeft seconds={details.estimatedTimeRemainingInSeconds}/>
+                    </SmallDisplayWrapper>
+                </TransferWrapper>
+            );
+        } else {
+            return (
+                <TransferWrapper>
+                    <SpeedAndDirection transfer={transfer}/>
                     <User user={transfer.user}/>
                     <CurrentFile file={details.currentFile}/>
                     <TimeLeft seconds={details.estimatedTimeRemainingInSeconds}/>
-                </SmallDisplayWrapper>
-            </TransferWrapper>
-        );
-    } else {
-        return (
-            <TransferWrapper>
-                <SpeedAndDirection transfer={transfer}/>
-                <User user={transfer.user}/>
-                <CurrentFile file={details.currentFile}/>
-                <TimeLeft seconds={details.estimatedTimeRemainingInSeconds}/>
-            </TransferWrapper>
-        );
+
+                    {this.state.filesShown
+                        ? <HideFilesButton onClick={this.toggleFilesShown.bind(this)}/>
+                        : <ShowFilesButton onClick={this.toggleFilesShown.bind(this)}/>}
+
+                    {/*{filesShown ? <Files files={files}/> : null}*/}
+                </TransferWrapper>
+            );
+        }
     }
-};
+}
 
 export default ActiveTransfer;
