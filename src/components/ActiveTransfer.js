@@ -93,15 +93,13 @@ const ClickableText = styled.span`
     }
 `;
 
-class ShowFilesButton extends React.Component {
+class ToggleFilesButton extends React.Component {
     render() {
-        return <ClickableText onClick={this.props.onClick}>Show Files</ClickableText>;
-    }
-}
-
-class HideFilesButton extends React.Component {
-    render() {
-        return <ClickableText onClick={this.props.onClick}>Hide Files</ClickableText>;
+        return (
+            <ClickableText onClick={this.props.onClick}>
+                {this.props.shown ? 'Hide Files' : 'Show Files'}
+            </ClickableText>
+        );
     }
 }
 
@@ -139,9 +137,7 @@ class ActiveTransfer extends React.Component {
                     <CurrentFile file={details.currentFile}/>
                     <TimeLeft seconds={details.estimatedTimeRemainingInSeconds}/>
 
-                    {this.state.filesShown
-                        ? <HideFilesButton onClick={this.toggleFilesShown.bind(this)}/>
-                        : <ShowFilesButton onClick={this.toggleFilesShown.bind(this)}/>}
+                    <ToggleFilesButton onClick={this.toggleFilesShown.bind(this)} shown={this.state.filesShown}/>
 
                     {/*{filesShown ? <Files files={files}/> : null}*/}
                 </TransferWrapper>
