@@ -6,6 +6,7 @@ import config from './config';
 const {baseUrl, apiKey} = config.mediaShuttleManagementApi;
 const TRANSFERS_ENDPOINT = `${baseUrl}/transfers?state=active`;
 const PORTALS_ENDPOINT = `${baseUrl}/portals`;
+const STORAGE_ENDPOINT = `${baseUrl}/storage`;
 const PORTAL_STORAGE_ENDPOINT = `${PORTALS_ENDPOINT}/%s/storage`;
 
 const getApiKey = () => {
@@ -27,7 +28,12 @@ const options = {
 
 const getPortals = () => request(PORTALS_ENDPOINT, options);
 const getActiveTransfers = () => request(TRANSFERS_ENDPOINT, options);
-const getStorageForPortal = (portalId) => request(util.format(PORTAL_STORAGE_ENDPOINT, portalId), options);
+const getStorageForPortal = async (portalId) => {
+    const portalStorages = await request(util.format(PORTAL_STORAGE_ENDPOINT, portalId), options);
+    return Promise.all(portalStorages.map((portalStorage) => {
+        return request(`${STORAGE_ENDPOINT}/${portalStorage.storageId}`, options);
+    }));
+};
 
 export {
     getPortals,
