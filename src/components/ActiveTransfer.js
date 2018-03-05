@@ -1,12 +1,17 @@
 import React from 'react';
+
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import uploadIcon from '@fortawesome/fontawesome-free-solid/faAngleUp';
 import downloadIcon from '@fortawesome/fontawesome-free-solid/faAngleDown';
 import userIcon from '@fortawesome/fontawesome-free-solid/faUser';
 import clockIcon from '@fortawesome/fontawesome-free-regular/faClock';
-import {Body1, Body2, Body3, Display} from './typography';
+
 import styled from 'styled-components';
+
+import ToggleFilesButton from './ToggleFilesButton';
+
 import {humanizeTransferRate, humanizeProtocol, humanizeFileSize, hunamizeTimeLeft} from '../humanize';
+import {Body1, Body2, Body3, Display} from './typography';
 
 const highlightColor = '#bde5ee';
 
@@ -85,32 +90,16 @@ const SmallDisplayWrapper = styled.div`
     flex: 1 1 auto;
 `;
 
-const ClickableText = styled.span`
-    color: #68bbe1;
-    cursor: pointer;
-    &:hover {
-        text-decoration: underline;
-    }
-`;
-
-class ToggleFilesButton extends React.Component {
-    render() {
-        return (
-            <ClickableText onClick={this.props.onClick}>
-                {this.props.shown ? 'Hide Files' : 'Show Files'}
-            </ClickableText>
-        );
-    }
-}
-
 class ActiveTransfer extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { filesShown: false };
     }
 
     toggleFilesShown() {
-        this.setState((prevState) => ({filesShown: !prevState.filesShown}));
+        this.setState((prevState) => ({
+            filesShown: !prevState.filesShown
+        }));
     }
 
     render () {
