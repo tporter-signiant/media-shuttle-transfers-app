@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {sortBy} from 'lodash';
 import {loadPortals, loadTransfers} from '../actions';
@@ -21,7 +22,8 @@ class ActiveTransfers extends React.Component {
             this.props.loadTransfers();
         }
 
-        this.timer = setTimeout(this.loadTransfers.bind(this), TRANSFERS_REFRESH_INTERVAL);
+        // eslint-disable-next-line no-undef
+        setTimeout(this.loadTransfers.bind(this), TRANSFERS_REFRESH_INTERVAL);
     }
 
     render () {
@@ -52,6 +54,17 @@ class ActiveTransfers extends React.Component {
         }
     }
 }
+
+ActiveTransfers.propTypes = {
+    loadPortals: PropTypes.func,
+    loadTransfers: PropTypes.func,
+    portalsLoading: PropTypes.bool,
+    transfersLoading: PropTypes.bool,
+    portals: PropTypes.arrayOf(PropTypes.object),
+    transfers: PropTypes.arrayOf(PropTypes.object),
+    error: PropTypes.string,
+    isSmallDisplay: PropTypes.bool
+};
 
 const mapStateToProps = (state) => ({
     portalsLoading: state.portals.isLoading,
