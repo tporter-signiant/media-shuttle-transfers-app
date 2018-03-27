@@ -58,11 +58,11 @@ class ActiveTransferList extends React.Component {
         });
 
         return (
-            <div>
+            <React.Fragment>
                 <TransfersHeadline>Active Transfers</TransfersHeadline>
                 <TransitionGroup>{items}</TransitionGroup>
                 {transfers.length === 0 ? <NoActiveTransfers/> : null}
-            </div>
+            </React.Fragment>
         );
     }
 }

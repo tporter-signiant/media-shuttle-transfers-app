@@ -78,10 +78,12 @@ const TimeLeft = ({seconds}) => {
 
     return (
         <TimeLeftWrapper>
-            {timeLeft ? [
-                <FontAwesomeIcon key="icon" icon={clockIcon} color={highlightColor}/>,
-                <Body1 key="text" style={{paddingLeft: 5}}>{timeLeft}</Body1>
-            ] : null}
+            {timeLeft ?
+                <React.Fragment>
+                    <FontAwesomeIcon icon={clockIcon} color={highlightColor}/>
+                    <Body1 style={{paddingLeft: 5}}>{timeLeft}</Body1>
+                </React.Fragment>
+                : null}
         </TimeLeftWrapper>
     );
 };
